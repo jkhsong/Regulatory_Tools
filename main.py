@@ -25,13 +25,14 @@ print('3: Metrics by Area of Research (i.e. Cardiovascular, Medical Imaging, etc
 # if choice == 1:
 #     RST_lookup.lookup_RST_table(skeldb)
 
-# RST_lookup.lookup_by_type_counts(skeldb)
+# RST_lookup.lookup_RST_counts(skeldb)  ##Lookup RST counts
+RST_lookup.lookup_by_type_counts(skeldb)  ##Lookup RST broken down by count
 # RST_lookup.lookup_distinct_areas(skeldb)
 # print(*RST_lookup.query_root_areas(skeldb), sep='\n')
 
-RST_lookup.lookup_root_frequency(skeldb)
+# RST_lookup.lookup_root_frequency(skeldb)
 
-RST_lookup.lookup_area_breakdown(skeldb)
+# RST_lookup.lookup_area_breakdown(skeldb)
 
 
 

@@ -17,6 +17,15 @@ class RSTqueries():
     def lookup_RST_table(self, skeldb: ct.PostgresConnector):
         skeldb.print_query_results("SELECT Area, Type FROM test;", [1,0])
 
+    def lookup_RST_counts(self, skeldb: ct.PostgresConnector):
+        printback = skeldb.query_all("SELECT Type, COUNT(Type) from test GROUP BY Type ORDER BY Type ASC;")
+        printback_dict = {}
+        for i,item in enumerate(printback):
+            printback_dict[item[0]] = {'Counts': printback[i][1]}
+        dfcat = pd.DataFrame(printback_dict)
+        dfcat = dfcat.transpose()
+        print(dfcat.to_markdown())
+
     def lookup_area_crude(self, skeldb: ct.PostgresConnector):
         skeldb.print_query_results("""SELECT DISTINCT(Area)
                                       FROM test ORDER BY Area ASC""")
@@ -66,8 +75,12 @@ class RSTqueries():
             for item in data:
                 if root in item[1]:
                     category[root] += 1
+        rootdict = {}
         for item in category:
-            print(f'{item}: {category[item]}')
+            rootdict[item] = {'#RSTs Available': category[item]}
+        dfcat = pd.DataFrame(rootdict)
+        dfcat = dfcat.transpose()
+        print(dfcat.to_markdown())
 
     def lookup_area_breakdown(self, skeldb: ct.PostgresConnector):
         root_list = self.query_root_areas(skeldb)
@@ -86,5 +99,5 @@ class RSTqueries():
         # for item in category:
         #     print(f'{item}: {category[item]}')   
         dfcat = pd.DataFrame(category).transpose()
-        print(dfcat)
+        print(dfcat.to_markdown())
 
