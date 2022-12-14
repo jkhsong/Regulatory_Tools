@@ -42,10 +42,10 @@ Initially, <b>Research_Tools</b> analyzes the 117 RSTs offered by FDA-OSEL in th
 | orthopedics                           |            12 |
 
 <br><br><b>RST subtypes offered by Area of Research:</b>
-|                                       |   ClinicalOutcomeAssessment |   Dataset |   LabMethod |   Model |   ModelDataset |   PhantomPhysical |   PhantomVirtual |
+|                                       |   ClinicalAssessment        |   Dataset |   LabMethod |   Model |   ModelDataset |   PhantomPhysical |   PhantomVirtual |
 |:--------------------------------------|:---------------------------:|:---------:|:-----------:|:-------:|:--------------:|:-----------------:|:----------------:|
-| artificialintelligencemachinelearning |                           0 |         0 |           1 |       3 |              0 |                 0 |                0 |
-| biocompatibilitytoxicology            |                           0 |         0 |           9 |       3 |              0 |                 0 |                0 |
+| artificialintelligence                |                           0 |         0 |           1 |       3 |              0 |                 0 |                0 |
+| biocompatibility                      |                           0 |         0 |           9 |       3 |              0 |                 0 |                0 |
 | cardiovascular                        |                           0 |         4 |          10 |      10 |              1 |                 0 |                0 |
 | credibilityassessmentinmodeling       |                           0 |         0 |           4 |       1 |              0 |                 0 |                0 |
 | electromagneticelectricalsafety       |                           0 |         0 |          10 |       6 |              0 |                 0 |                0 |
@@ -55,3 +55,4 @@ Initially, <b>Research_Tools</b> analyzes the 117 RSTs offered by FDA-OSEL in th
 | neurology                             |                           1 |         0 |           6 |       4 |              0 |                 0 |                0 |
 | ophthalmology                         |                           0 |         0 |           5 |       3 |              0 |                 0 |                0 |
 | orthopedics                           |                           1 |         0 |           5 |       6 |              0 |                 0 |                0 |
+</size>
