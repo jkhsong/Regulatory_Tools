@@ -42,7 +42,7 @@ Initially, <b>Research_Tools</b> analyzes the 117 RSTs offered by FDA-OSEL in th
 | orthopedics                           |            12 |
 
 <br><br><b>RST subtypes offered by Area of Research:</b>
-|                                       |   ClinicalAssessment        |   Dataset |   LabMethod |   Model |   ModelDataset |   PhantomPhysical |   PhantomVirtual |
+|                                       |      ClinicalAssessment     |   Dataset |   LabMethod |   Model |   ModelDataset |   PhantomPhysical |   PhantomVirtual |
 |:--------------------------------------|:---------------------------:|:---------:|:-----------:|:-------:|:--------------:|:-----------------:|:----------------:|
 | artificialintelligence                |                           0 |         0 |           1 |       3 |              0 |                 0 |                0 |
 | biocompatibility                      |                           0 |         0 |           9 |       3 |              0 |                 0 |                0 |
