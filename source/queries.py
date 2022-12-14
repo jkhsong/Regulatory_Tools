@@ -1,6 +1,10 @@
 import source.rst_reader as rr
 import source.connectors as ct
+import source.mlalgorithms as ml
+import numpy as np
 import pandas as pd
+from matplotlib import pyplot as plt
+
 
 
 class RSTqueries():
@@ -50,7 +54,7 @@ class RSTqueries():
                                         """)
     
     def lookup_distinct_RST(self, skeldb: ct.PostgresConnector):
-        skeldb.print_query_results("""Select DISTINCT(Type) from test ORDER BY Type ASC""")
+        return skeldb.query_all("""Select DISTINCT(Type) from test ORDER BY Type ASC""")
     
     def lookup_distinct_areas(self, skeldb: ct.PostgresConnector):
         skeldb.print_query_results("""Select DISTINCT(Area) from test ORDER BY Area ASC""")
@@ -63,6 +67,8 @@ class RSTqueries():
             del proxyresults[i]
             check = any(result[0] in sub[0] for sub in proxyresults if len(result[0])<=len(sub[0]))
             if (check == True and result[0] not in unique): ## Reduce Area by root word
+                unique.append(result[0])
+            if (check == False and any([item in result[0] for item in unique])==False):
                 unique.append(result[0])
         return unique
     
@@ -100,4 +106,57 @@ class RSTqueries():
         #     print(f'{item}: {category[item]}')   
         dfcat = pd.DataFrame(category).transpose()
         print(dfcat.to_markdown())
+        return dfcat
+    
+    def lookup_kmeans_areas(self, skeldb: ct.PostgresConnector):
+        dfcat = self.lookup_area_breakdown(skeldb)
+        dfcat = dfcat.transpose()
+        dfdict = dfcat.to_dict()
+        area_matrix, area_dict = [], {}
+        for area in dfdict:
+            sublist = []
+            for type in dfdict[area]:
+                sublist.append(dfdict[area][type])
+            area_matrix.append(sublist)
+            area_dict[area] = sublist
+        
+        inertias = []
+        ##Finding elbow
+        # for i in range(1,len(area_matrix)):
+        #     p = ml.kmeans(area_matrix,k=i)
+        #     array,inertia = p.classify()
+        #     inertias.append(inertia)    
+        # fig = plt.figure(figsize=(15, 5))
+        # plt.plot(range(1, len(area_matrix)), inertias)
+        # plt.grid(True)
+        # plt.title('Elbow curve')
+        # plt.show()
+        p = ml.kmeans(area_matrix,k=4)
+        array,inertia = p.classify()
+
+        # classified = {}
+        # labellist = []
+        # for i in array:
+        #     if i not in labellist:
+        #         labellist.append(i)
+        # labellist = sorted(labellist)
+        # classified = {}
+        # for i in labellist:
+        #     classified[i] = []
+        # area_listing = {}
+        
+        # for i,label in enumerate(array):
+        #     for j, area in enumerate(area_dict):
+        #         if i == j:
+        #             area_listing[i] = {area: tuple(area_matrix[i])}  
+        #             classified[label].append(area_listing[i])
+        idx = tuple([item for item in area_dict]) ##areas list
+        tuplelist = tuple([tuple(i) for i in area_matrix])
+        
+        arrays = [array, idx, tuplelist]
+
+        dfcat = pd.DataFrame(arrays).transpose()
+        dfcat.columns = ['Category','Area of Research','RSTs (C,D,L,M,MD,PP,PV)']
+        dfcat = dfcat.sort_values(by=['Category']).set_index('Area of Research')
+        print(dfcat.to_markdown()) 
 
