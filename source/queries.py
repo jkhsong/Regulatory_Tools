@@ -58,6 +58,23 @@ class RSTqueries():
     
     def lookup_distinct_areas(self, skeldb: ct.PostgresConnector):
         skeldb.print_query_results("""Select DISTINCT(Area) from test ORDER BY Area ASC""")
+
+    def lookup_distinct_areas_by_count(self, skeldb: ct.PostgresConnector):
+        query = skeldb.query_all("""Select Area from test ORDER BY Area ASC""")
+        roots = self.query_root_areas(skeldb)
+        rootdict = {}
+        for item in roots:
+            rootdict[item] = 0
+            for area in query:
+                if item in area[0]:
+                    rootdict[item] += 1
+        final_list = {}
+        for item in rootdict:
+            final_list[item] = {'#': rootdict[item]}
+        dfcat = pd.DataFrame.from_dict(final_list)
+        dfcat = dfcat.transpose()
+        print(dfcat.to_markdown())
+
     
     def query_root_areas(self, skeldb: ct.PostgresConnector):
         unique = []
@@ -72,7 +89,7 @@ class RSTqueries():
                 unique.append(result[0])
         return unique
     
-    def lookup_root_frequency(self, skeldb: ct.PostgresConnector):
+    def lookup_root_frequency_by_rst(self, skeldb: ct.PostgresConnector):
         root_list = self.query_root_areas(skeldb)
         data = self.data
         category = {}

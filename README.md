@@ -1,28 +1,36 @@
-# Research_Tools
+# Regulatory_Tools
 
-<br><h1>Introduction</h1>
-The purpose of FDA Research Science Tools (RSTs), developed by the FDA-CDRH's Office of Science and Engineering Labs (OSEL), is to assist in the development of new medical technologies.  
+<h2>Project Outline</h2>
+<br><h3>1. Introduction</h3>
+The purpose of FDA Regulatory Science Tools (<b>RSTs</b>), developed by the FDA-CDRH's Office of Science and Engineering Labs (<b>OSEL</b>), is to assist in the development of new medical technologies.<br><br>  
 
-Initially, <b>Research_Tools</b> analyzes the 117 RSTs offered by FDA-OSEL in three manners: <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1\. The availability of RSTs by industry type. <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2\. The availability of RSTs by tool type (i.e. Laboratory Method, etc.). <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3\. How RST tool types serve various areas of research. <br>
+<h3>2. Analysis</h3>
+Initially, <b>Regulatory_Tools</b> analyzes the 117 RSTs offered by FDA-OSEL in three manners:</h3><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. The availability of RSTs by industry type. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. The availability of RSTs by tool type (i.e. Laboratory Method, etc.). <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. How RST tool types serve various areas of research. <br>
+
 The data for these analyses are extracted from the [Catalog of Regulatory Science Tools to Help Assess New Medical Devices](https://www.fda.gov/medical-devices/science-and-research-medical-devices/catalog-regulatory-science-tools-help-assess-new-medical-devices).
   
 
-<p><br>Next, open-source industry data is integrated to offer three additional analyses: <br>
+<br>Next, open-source industry data is integrated to offer three additional analyses: <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Interactions between RST parameters and industry size. <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. Interactions between RST parameters and industry growth. <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. Interactions between RST parameters and industry employment <br> 
 
-<h1>How the program works:</h1>
+<h3>3. How the program works:</h3>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Strings cleaned, stripped, lemmatized using Python (packages such as pandas, etc.). <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Areas automatically reduced to base disciplines (Neurology Oncology -> Neurology) by root words (i.e. "Neurology"). <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Pushes data to PostgreSQL server to store data. <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Uses SQL retrieve and form relevant tables. <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. Uses Python to perform higher level inferences. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. Uses Python to perform higher level inferences. <br><br>
 
-<br><br><h1>Sample outputs:</h1>
+<h3>4. Interpretations gleaned:</h3>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. The two most common types of RSTs offered were Laboratory Methods, and Computational Tools (Models).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Interestingly, the least offered tools were Datasets, Phantoms, and Clinical Outcome Assessments--As a whole, these were represented at a rate of 18% that of Lab Methods and Models.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. 
+
+<br><h3>Sample outputs:</h3>
 
 <b>Types of RSTs found: </b>
 | Type of RSTs              |   Counts |
@@ -103,3 +111,6 @@ The data for these analyses are extracted from the [Catalog of Regulatory Scienc
 | neurology                                   |          3 | (1, 0, 6, 4, 0, 0, 0)     |
 | ophthalmology                               |          3 | (0, 0, 5, 3, 0, 0, 0)     |
 | orthopedics                                 |          3 | (1, 0, 5, 6, 0, 0, 0)     |
+
+##add counts of areas
+##normalization of RST tuples
