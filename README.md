@@ -141,5 +141,3 @@ The data for these analyses are extracted from the [Catalog of Regulatory Scienc
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It is worth noting that RSTs are organically developed on circumstance and needs, and cluster analysis is predominantly used to classify items with similar attributes (i.e. classifying fish type by length, width, and weight).<br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;However, in our case, cluster analysis can indicate what future RST types may be for less-served areas of research. An example of this is "Evaluation of 3D imaging systems": <br>We can imagine that such a discipline would benefit from additional models, datasets, and lab methods, much like its nearest neighbors "Therapeutic Ultrasound".<br>
-
-(Additional items learned)
