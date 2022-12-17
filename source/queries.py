@@ -1,6 +1,7 @@
 import source.rst_reader as rr
 import source.connectors as ct
 import source.mlalgorithms as ml
+from typing import Union
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
@@ -12,7 +13,7 @@ class RSTqueries():
         rst_dfs = rr.read_xl('X:\\Dropbox\\GitHub\\Skeleton_DB\\datafiles\\', 'catalogofrsts.xlsx')
         self.data = rst_dfs.get_rsts()
     
-    def input_RSTs(self, skeldb: ct.PostgresConnector):
+    def input_RSTs(self, skeldb: Union[ct.PostgresConnector, ct.MongoConnector]):
         rst_data = self.data
         for i in range(len(rst_data)):
             Area, Type, Description = rst_data[i][1], rst_data[i][2], rst_data[i][0]
@@ -151,29 +152,54 @@ class RSTqueries():
         p = ml.kmeans(area_matrix,k=4)
         array,inertia = p.classify()
 
-        # classified = {}
-        # labellist = []
-        # for i in array:
-        #     if i not in labellist:
-        #         labellist.append(i)
-        # labellist = sorted(labellist)
-        # classified = {}
-        # for i in labellist:
-        #     classified[i] = []
-        # area_listing = {}
-        
-        # for i,label in enumerate(array):
-        #     for j, area in enumerate(area_dict):
-        #         if i == j:
-        #             area_listing[i] = {area: tuple(area_matrix[i])}  
-        #             classified[label].append(area_listing[i])
         idx = tuple([item for item in area_dict]) ##areas list
         tuplelist = tuple([tuple(i) for i in area_matrix])
         
         arrays = [array, idx, tuplelist]
 
         dfcat = pd.DataFrame(arrays).transpose()
-        dfcat.columns = ['Category','Area of Research','RSTs (C,D,L,M,MD,PP,PV)']
+        dfcat.columns = ['Category','Area of Research','RSTs (C, D, L, M, MD, PP, PV)']
         dfcat = dfcat.sort_values(by=['Category']).set_index('Area of Research')
-        print(dfcat.to_markdown()) 
+        print(dfcat.to_markdown())
+
+    def lookup_kmeans_areas_normalized(self, skeldb: ct.PostgresConnector):
+            dfcat = self.lookup_area_breakdown(skeldb)
+            dfcat = dfcat.transpose()
+            dfdict = dfcat.to_dict()
+            area_matrix, area_dict = [], {}
+            for area in dfdict:
+                sublist = []
+                total = sum([dfdict[area][type] for type in dfdict[area]])
+                for type in dfdict[area]:
+                    sublist.append(dfdict[area][type]/total)
+                area_matrix.append(sublist)
+                area_dict[area] = sublist
+            
+            inertias = []
+            ## Finding elbow
+            # for i in range(1,len(area_matrix)):
+            #     p = ml.kmeans(area_matrix,k=i)
+            #     array,inertia = p.classify()
+            #     inertias.append(inertia)    
+
+            # fig = plt.figure(figsize=(15, 5))
+            # plt.plot(range(1, len(area_matrix)), inertias)
+            # plt.grid(True)
+            # plt.title('Elbow curve')
+            # plt.show()
+
+            p = ml.kmeans(area_matrix,k=4)
+            array,inertia = p.classify()
+
+            idx = tuple([item for item in area_dict]) ##areas list
+
+            tuplelist = np.round(area_matrix, 2)     
+            tuplelist = tuple([tuple(i) for i in tuplelist])
+            
+            arrays = [array, idx, tuplelist]
+
+            dfcat = pd.DataFrame(arrays).transpose()
+            dfcat.columns = ['Category','Area of Research','RSTs (C, D, L, M, MD, PP, PV)']
+            dfcat = dfcat.sort_values(by=['Category']).set_index('Area of Research')
+            print(dfcat.to_markdown())  
 
