@@ -25,7 +25,8 @@ The data for these analyses are extracted from the [Catalog of Regulatory Scienc
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Uses SQL retrieve and form relevant tables. <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. Uses Python to perform higher level inferences. <br><br>
 
-<b><h3>4. Interpretations:</h3></b><br>
+<b><h3>4. Interpretations:</h3></b>
+<p><b><i> Disclaimer: The scientist in me warns, "Correlation does not imply causation!"</i></b>  The following interpretations are merely thoughts based on <i>trends</i>, and must be tested with control data to be useful to a policy-maker.</p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Table 1</b> indicates that medical imaging and cardiovascular applications are the most served areas of research regarding RST availability, followed by other clinical disciplines, microbiology and infection control, as well as biocompatibility/toxicology.  Least-served areas were materials and manufacturing, and digital or computational tools.<br> 
 
 <b>Table 1. Area of Research.</b>
