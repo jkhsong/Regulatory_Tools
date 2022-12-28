@@ -88,7 +88,7 @@ The data for these analyses are extracted from the [Catalog of Regulatory Scienc
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Cardiovascular and Medical Imaging (areas of research) share similar RST counts and types--This is interesting coming from an ultrasound background, in which echocardiography (a medical imaging subtype involving heart imaging) is a preeminent application.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Areas involving technologies with nascent biomedical applications (i.e. additive manufacturing) and computational research are marked by a similar count and ratio of lab-method/computational type RSTs on offer.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Areas involving biomedical materials and clinical disciplines (i.e. neurology, opthamology, orthopedics) are marked by a high number of lab methods and computational models.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Microbiology and Infection Control stands alone in that their RSTs are exclusively lab methods.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Microbiology and Infection Control stands alone in that their RSTs are exclusively lab methods.<br><br>
 <b>Table 4. K-Means Classications of Research Areas by RST vectors.</b>
 | Area of Research                            |   Category | RSTs (C, D, L, M, MD, PP, PV)|
 |:--------------------------------------------|-----------:|:-------------------------:|
@@ -113,7 +113,7 @@ The data for these analyses are extracted from the [Catalog of Regulatory Scienc
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. We see that computational predominantly remain together in category 3, indicating that RSTs developed for these areas of research have largely been of similar types.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Similar RST types are offered for materials research, biocompatibility, and microbiology/infection control (which was previously in a category of its own). <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. "Evaluation of 3D Breast Imaging Systems" now resides in its own category, due to its exclusive reliance on Physical Phantoms as RST type.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Interestingly, all of the clinical research areas (opthalmology, neurology, cardiovascular, orthopedics) clustered together according to normalized RST types.  This suggests that the type of RST offerings are largely similar for these areas of research, which is understandable--A computational model is largely accompanied by laboratory assays.  What may be counter-intuitive are discipline such as microbiology/infection control residing outside this regime of classical testing schemes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Interestingly, all of the clinical research areas (opthalmology, neurology, cardiovascular, orthopedics) clustered together according to normalized RST types.  This suggests that the type of RST offerings are largely similar for these areas of research, which is understandable--A computational model is largely accompanied by laboratory assays.  What may be counter-intuitive are discipline such as microbiology/infection control residing outside this regime of classical testing schemes.<br><br>
 
 
 <b>Table 5. K-Means Classications of Research Areas by <i>normalized</i> RST vectors.</b>
@@ -136,7 +136,7 @@ The data for these analyses are extracted from the [Catalog of Regulatory Scienc
 | digitalpathology                            |          3 | (0.0, 0.5, 0.0, 0.5, 0.0, 0.0, 0.0)     |
 | medicalimagingdiagnostics                   |          3 | (0.0, 0.04, 0.2, 0.48, 0.0, 0.24, 0.04) |
 
-
+<br>
 <b><h3>5. Conclusion</h3></b>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It is worth noting that RSTs are organically developed on circumstance and needs, and cluster analysis is predominantly used to classify items with similar attributes (i.e. classifying fish type by length, width, and weight).<br>
