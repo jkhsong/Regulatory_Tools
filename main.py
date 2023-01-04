@@ -2,6 +2,7 @@ import source.connectors as ct
 import source.rst_reader as rr
 import source.queries as queries
 
+
 user = ct.User()
 user.username = 'postgres'
 user.password = 'testdb'
@@ -40,8 +41,8 @@ print('3: Metrics by Area of Research (i.e. Cardiovascular, Medical Imaging, etc
 
 # RST_lookup.lookup_area_breakdown(skeldb)
 
-# RST_lookup.lookup_kmeans_areas(skeldb)
+RST_lookup.lookup_kmeans_areas(skeldb)
 
-RST_lookup.lookup_kmeans_areas_normalized(skeldb)
+# RST_lookup.lookup_kmeans_areas_normalized(skeldb)
 
 

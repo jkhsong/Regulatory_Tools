@@ -30,6 +30,7 @@ class RSTqueries():
         dfcat = pd.DataFrame(printback_dict)
         dfcat = dfcat.transpose()
         print(dfcat.to_markdown())
+        dfcat.to_csv("X:\Dropbox\GitHub\Skeleton_DB\datafiles\RSTcounts.csv")
 
     def lookup_area_crude(self, skeldb: ct.PostgresConnector):
         skeldb.print_query_results("""SELECT DISTINCT(Area)
@@ -105,6 +106,7 @@ class RSTqueries():
         dfcat = pd.DataFrame(rootdict)
         dfcat = dfcat.transpose()
         print(dfcat.to_markdown())
+        dfcat.to_csv("X:\Dropbox\GitHub\Skeleton_DB\datafiles\\rootfrequency.csv")
 
     def lookup_area_breakdown(self, skeldb: ct.PostgresConnector):
         root_list = self.query_root_areas(skeldb)
@@ -159,8 +161,12 @@ class RSTqueries():
 
         dfcat = pd.DataFrame(arrays).transpose()
         dfcat.columns = ['Category','Area of Research','RSTs (C, D, L, M, MD, PP, PV)']
-        dfcat = dfcat.sort_values(by=['Category']).set_index('Area of Research')
+        # dfcat = dfcat.sort_values(by=['Category']).set_index('Area of Research')
         print(dfcat.to_markdown())
+        area_mat_df = pd.DataFrame(area_matrix)
+        area_mat_df.to_excel("X:\Dropbox\GitHub\Skeleton_DB\datafiles\\area_matrix.xlsx")
+        dfcat.to_excel("X:\Dropbox\GitHub\Skeleton_DB\datafiles\\area_clusters_nonnormal.xlsx") 
+        
 
     def lookup_kmeans_areas_normalized(self, skeldb: ct.PostgresConnector):
             dfcat = self.lookup_area_breakdown(skeldb)
@@ -198,8 +204,14 @@ class RSTqueries():
             
             arrays = [array, idx, tuplelist]
 
+            area_mat_df = pd.DataFrame(area_matrix)
+            area_mat_df.to_excel("X:\Dropbox\GitHub\Skeleton_DB\datafiles\\area_matrix.xlsx")
+            
+
+
             dfcat = pd.DataFrame(arrays).transpose()
             dfcat.columns = ['Category','Area of Research','RSTs (C, D, L, M, MD, PP, PV)']
-            dfcat = dfcat.sort_values(by=['Category']).set_index('Area of Research')
-            print(dfcat.to_markdown())  
+            # dfcat = dfcat.sort_values(by=['Category']).set_index('Area of Research')
+            print(dfcat.to_markdown())
+            dfcat.to_excel("X:\Dropbox\GitHub\Skeleton_DB\datafiles\\area_clusters.xlsx") 
 
