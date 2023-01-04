@@ -177,7 +177,8 @@ Next, RSTs were normalized by total RSTs per research area. Previously, we saw t
 | digitalpathology                            |          3 | (0.0, 0.5, 0.0, 0.5, 0.0, 0.0, 0.0)     |
 | medicalimagingdiagnostics                   |          3 | (0.0, 0.04, 0.2, 0.48, 0.0, 0.24, 0.04) |
 
-<h3><b>Principal Component Analysis of RSTs</b></h3><br>
+<br>
+<h3><b>Principal Component Analysis of RSTs</b></h3>
 <h4><i>The intuition, for my friends that are/were curious:</i></h4>
 Principal components are composites of features which help reduce the dimensionality of data.  Imagine you wanted to flatten a 3-dimensional scatter plot (3 continuous features) into a 2-dimensional plot (2 continuous features).  You could imagine that you could slice by any of the following planes: X-Y, X-Z, Y-Z (corresponding to a Z = C, Y = C, or X = C graphing function, respectively, where C is some constant).  Whichever plane you picked to flatten across, you would want to preserve the most information about the relative position of each point in the scatter plot.  What PCA lets us accomplish (as an anology) is: Determine a plane (sometimes tilted) that give us the "best flatten" that preserves the most information.  For example, if your data points were scattered in diagonally across 3D space (but spread out along that plane), you could preserve the most information by flattening them along the plane they sit on.  If this plane cannot simply be described as one formed by Z = C, Y = C or X =C, then each plane will be formed by contributions from several dimensions (i.e. A*Z = B*X + C*Y, where A, B, Cs are coefficients.  Note how both Z and X describe a plane here).  A principal component (<b>PC</b>) is similar, but it describes the data, already processed, in terms of variance along all of its axes (information).<br>
 
