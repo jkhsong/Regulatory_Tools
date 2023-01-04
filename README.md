@@ -178,7 +178,7 @@ Next, RSTs were normalized by total RSTs per research area. Previously, we saw t
 | medicalimagingdiagnostics                   |          3 | (0.0, 0.04, 0.2, 0.48, 0.0, 0.24, 0.04) |
 
 <br>
-<h3><b>Principal Component Analysis of RSTs</b></h3>
+<h2><b>Principal Component Analysis of RSTs</b></h2>
 <h4><i>The intuition, for my friends that are/were curious:</i></h4>
 Principal components are composites of features which help reduce the dimensionality of data.  Imagine you wanted to flatten a 3-dimensional scatter plot (3 continuous features) into a 2-dimensional plot (2 continuous features).  You could imagine that you could slice by any of the following planes: X-Y, X-Z, Y-Z (corresponding to a Z = C, Y = C, or X = C graphing function, respectively, where C is some constant).  Whichever plane you picked to flatten across, you would want to preserve the most information about the relative position of each point in the scatter plot.  What PCA lets us accomplish (as an anology) is: Determine a plane (sometimes tilted) that give us the "best flatten" that preserves the most information.  For example, if your data points were scattered in diagonally across 3D space (but spread out along that plane), you could preserve the most information by flattening them along the plane they sit on.  If this plane cannot simply be described as one formed by Z = C, Y = C or X =C, then each plane will be formed by contributions from several dimensions (i.e. A*Z = B*X + C*Y, where A, B, Cs are coefficients.  Note how both Z and X describe a plane here).  A principal component (<b>PC</b>) is similar, but it describes the data, already processed, in terms of variance along all of its axes (information).<br>
 
@@ -189,7 +189,7 @@ Principal components are composites of features which help reduce the dimensiona
 </p>
 <br><br>
 
-<h4><i>Applying PCA to RSTs:</i><h4>
+<h3><b>Applying PCA to RSTs:</b></h3>
 The first four "best" principal components are mostly comprised of Laboratory Methods (L) and Math Models (M), Physical Phantoms (PP), Clinical Assessments (C), and Virtual Phantoms (PV).  This makes sense, since these tend to be the most "constant" in terms of relationality--For example, there are very few AoRs that use Virtual Phantoms (exactly one--medical imaging diagnostics).  That means that a lot of variance can be preserved by weighting our PCA to "flatten" along Virtual Phantoms.  It is a bit of a surprise that Lab Methods and Math Models would provide our best "flatten", but on closer inspection of Table 3 and 4, we can see that they scale with each other. <br><br>
 
 <br>
