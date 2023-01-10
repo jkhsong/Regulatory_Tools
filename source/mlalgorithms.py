@@ -45,7 +45,7 @@ def cluster_PCA():
     # print(X_scaled)
 
 
-    pca7 = PCA(n_components=None, random_state=13)
+    pca7 = PCA(n_components=7, random_state=13)
 
 
     pca7.fit(X_scaled)
